@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cornellius Musyoka — Accounting Student &amp; Forex Trader</title>
+<meta name="description" content="Cornellius Musyoka: accounting student on industrial attachment, and independent forex trader trading as Cornellius FX.">
+<link rel="icon" type="image/png" href="/path-to-your-logo/favicon.png">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#101B2D;
+    --ink-soft:#182A44;
+    --ledger:#EAF0E3;
+    --paper:#F8F7F2;
+    --line-dark: rgba(234,240,227,0.16);
+    --line-light: rgba(16,27,45,0.12);
+    --gold:#B8862E;
+    --gold-light:#D8AE5C;
+    --green:#2F6E4E;
+    --red:#A13D2B;
+    --whatsapp:#25D366;
+    --text-dark:#16202E;
+    --text-muted-dark:#4E5B54;
+    --text-light:#F3F1E7;
+    --text-muted-light: rgba(243,241,231,0.72);
+    --serif: 'Fraunces', serif;
+    --sans: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+    --max: 1120px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--sans);
+    color:var(--text-dark);
+    background:var(--ledger);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  section{position:relative;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+  ::selection{background:var(--gold-light);color:var(--ink);}
+
+  h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-0.01em;}
+  h2{font-size:clamp(28px,4vw,40px);margin-bottom:14px;}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--gold);
+  }
+  .lede{
+    font-size:17px;
+    color:var(--text-muted-dark);
+    max-width:56ch;
+  }
+  section.on-dark .lede{color:var(--text-muted-light);}
+
+  /* ---------- Nav ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:22px 0;
+    transition:background .35s ease, padding .35s ease, border-color .35s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{
+    background:rgba(16,27,45,0.92);
+    backdrop-filter:blur(8px);
+    padding:14px 0;
+    border-bottom:1px solid var(--line-dark);
+  }
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;}
+  .brand{
+    font-family:var(--serif);
+    font-size:19px;
+    font-weight:600;
+    color:var(--text-light);
+    display:flex;align-items:baseline;gap:8px;
+  }
+  .brand span{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--gold-light);
+    font-weight:400;
+  }
+  .nav-links{display:flex;gap:36px;}
+  .nav-links a{
+    color:var(--text-muted-light);
+    font-size:15px;
+    position:relative;
+    padding:4px 0;
+    transition:color .25s ease;
+  }
+  .nav-links a:hover{color:var(--text-light);}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:1px;
+    background:var(--gold-light);transition:width .3s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+
+  /* Mobile menu button sits in its own stacking layer above the sliding
+     panel and the backdrop, so it stays clickable (and turns into a
+     close icon) whether the menu is open or closed. */
+  .menu-btn{
+    display:none;
+    flex-direction:column;justify-content:center;gap:5px;
+    background:none;border:0;cursor:pointer;padding:8px;
+    position:relative;
+    z-index:220;
+  }
+  .menu-btn span{width:22px;height:1.5px;background:var(--text-light);display:block;transition:transform .3s ease, opacity .3s ease;}
+  .menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+  .menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0;}
+  .menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+  .nav-backdrop{
+    position:fixed;inset:0;
+    background:rgba(16,27,45,0.55);
+    z-index:150;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .3s ease, visibility .3s ease;
+  }
+  .nav-backdrop.open{opacity:1;visibility:visible;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:var(--ink);
+    color:var(--text-light);
+    padding:168px 0 96px;
+    overflow:hidden;
+    position:relative;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero-name{
+    font-size:clamp(42px,6vw,68px);
+    line-height:1.04;
+    margin-bottom:18px;
+  }
+  .hero-role{
+    font-size:clamp(17px,2vw,20px);
+    color:var(--gold-light);
+    font-family:var(--sans);
+    font-weight:500;
+    margin-bottom:22px;
+  }
+  .hero-tagline{
+    font-size:17px;
+    color:var(--text-muted-light);
+    max-width:46ch;
+    margin-bottom:34px;
+  }
+  .cta-row{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;
+    padding:13px 26px;
+    font-size:15px;
+    font-weight:500;
+    border-radius:2px;
+    transition:transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+    cursor:pointer;
+  }
+  .btn-primary{
+    background:var(--gold);
+    color:var(--ink);
+  }
+  .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
+  .btn-ghost{
+    border:1px solid var(--line-dark);
+    color:var(--text-light);
+  }
+  .btn-ghost:hover{border-color:var(--gold-light);color:var(--gold-light);transform:translateY(-2px);}
+
+  .photo-frame{
+    width:min(280px,100%);
+    aspect-ratio:1/1.08;
+    margin-left:auto;
+    border:1px solid var(--line-dark);
+    padding:14px;
+    position:relative;
+  }
+  .photo-frame::before{
+    content:"";position:absolute;inset:0;border:1px solid var(--gold);opacity:.35;
+    transform:translate(8px,8px);pointer-events:none;
+  }
+  .photo-inner{
+    width:100%;height:100%;
+    overflow:hidden;
+    position:relative;
+    background:var(--ink-soft);
+  }
+  .photo-inner img{width:100%;height:100%;object-fit:cover;}
+  .photo-fallback{
+    display:none;
+    width:100%;height:100%;
+    align-items:center;justify-content:center;
+    font-family:var(--serif);
+    font-size:56px;
+    color:var(--gold-light);
+    background:
+      repeating-linear-gradient(135deg, rgba(184,134,46,0.08) 0 2px, transparent 2px 14px),
+      var(--ink-soft);
+  }
+  .photo-caption{
+    text-align:center;margin-top:12px;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--text-muted-light);
+  }
+
+  .hero-chart{
+    position:absolute;
+    right:-4%;
+    bottom:-6%;
+    width:56%;
+    opacity:.16;
+    pointer-events:none;
+  }
+
+  /* ---------- Sections shared ---------- */
+  .section-pad{padding:96px 0;}
+  .on-dark{background:var(--ink);color:var(--text-light);}
+  .on-dark h2{color:var(--text-light);}
+
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    border:1px solid var(--line-light);
+    margin-top:44px;
+  }
+  .about-col{
+    padding:40px;
+    background:var(--paper);
+  }
+  .about-col + .about-col{border-left:1px solid var(--line-light);}
+  .about-col h3{font-size:22px;margin-bottom:14px;}
+  .about-col p{color:var(--text-muted-dark);font-size:15.5px;}
+  .role-tag{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--green);
+    border:1px solid rgba(47,110,78,0.3);
+    padding:3px 9px;
+    margin-bottom:16px;
+  }
+  .about-col.trader .role-tag{color:var(--gold);border-color:rgba(184,134,46,0.35);}
+
+  /* ---------- Services (ledger) ---------- */
+  .ledger{
+    margin-top:44px;
+    border-top:1px solid var(--line-light);
+  }
+  .ledger-row{
+    display:grid;
+    grid-template-columns:88px 220px 1fr;
+    gap:24px;
+    padding:26px 0;
+    border-bottom:1px solid var(--line-light);
+    align-items:baseline;
+  }
+  .ledger-row .code{
+    font-family:var(--mono);
+    color:var(--gold);
+    font-size:15px;
+  }
+  .ledger-row .title{
+    font-family:var(--serif);
+    font-size:19px;
+    font-weight:600;
+  }
+  .ledger-row .desc{
+    color:var(--text-muted-dark);
+    font-size:15px;
+    max-width:52ch;
+  }
+
+  /* ---------- Trading ---------- */
+  .trading-layout{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:center;
+    margin-top:20px;
+  }
+  .stat-row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line-dark);
+    margin-top:36px;
+    border:1px solid var(--line-dark);
+  }
+  .stat{
+    background:var(--ink);
+    padding:22px 18px;
+  }
+  .stat .num{
+    font-family:var(--mono);
+    font-size:22px;
+    color:var(--gold-light);
+    display:block;
+    margin-bottom:6px;
+  }
+  .stat .label{
+    font-size:13px;
+    color:var(--text-muted-light);
+  }
+  .candle-card{
+    border:1px solid var(--line-dark);
+    padding:28px;
+    background:var(--ink-soft);
+  }
+  .candle-note{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--text-muted-light);
+    margin-top:14px;
+  }
+  .disclaimer{
+    margin-top:28px;
+    font-size:13.5px;
+    color:var(--text-muted-light);
+    border-left:2px solid var(--gold);
+    padding-left:14px;
+  }
+
+  /* ---------- Timeline ---------- */
+  .timeline{margin-top:48px;}
+  .t-row{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    gap:24px;
+    padding:22px 0;
+    border-bottom:1px solid var(--line-light);
+  }
+  .t-row:first-child{border-top:1px solid var(--line-light);}
+  .t-year{
+    font-family:var(--mono);
+    color:var(--green);
+    font-size:15px;
+    padding-top:2px;
+  }
+  .t-body h4{font-family:var(--serif);font-size:18px;font-weight:600;margin-bottom:4px;}
+  .t-body p{color:var(--text-muted-dark);font-size:15px;max-width:56ch;}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    margin-top:40px;
+  }
+  .contact-list{margin-top:26px;}
+  .contact-list li{
+    display:flex;
+    justify-content:space-between;
+    padding:16px 0;
+    border-bottom:1px solid var(--line-dark);
+    font-size:15px;
+    gap:12px;
+  }
+  .contact-list li span:first-child{color:var(--text-muted-light);}
+  .contact-list li a:hover{color:var(--gold-light);}
+  .contact-form{display:flex;flex-direction:column;gap:14px;}
+  .contact-form input, .contact-form textarea{
+    background:transparent;
+    border:1px solid var(--line-dark);
+    color:var(--text-light);
+    padding:13px 14px;
+    font-family:var(--sans);
+    font-size:14.5px;
+    border-radius:2px;
+  }
+  .contact-form input::placeholder, .contact-form textarea::placeholder{color:var(--text-muted-light);}
+  .contact-form input:focus, .contact-form textarea:focus{outline:1px solid var(--gold-light);border-color:var(--gold-light);}
+  .contact-form textarea{resize:vertical;min-height:110px;}
+  .form-hint{
+    font-size:12.5px;
+    color:var(--text-muted-light);
+    margin-top:2px;
+  }
+
+  footer{
+    background:var(--ink);
+    color:var(--text-muted-light);
+    padding:28px 0;
+    border-top:1px solid var(--line-dark);
+    font-size:13.5px;
+  }
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline:2px solid var(--gold-light);
+    outline-offset:2px;
+  }
+
+  /* ---------- Floating WhatsApp button ---------- */
+  .whatsapp-float{
+    position:fixed;
+    right:24px;
+    bottom:24px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:var(--whatsapp);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 22px rgba(16,27,45,0.35);
+    z-index:180;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .whatsapp-float:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 12px 26px rgba(16,27,45,0.4);}
+  .whatsapp-float svg{width:29px;height:29px;}
+  .whatsapp-float::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    background:var(--whatsapp);
+    animation:wa-pulse 2.6s ease-out infinite;
+    z-index:-1;
+  }
+  @keyframes wa-pulse{
+    0%{opacity:.55;transform:scale(1);}
+    100%{opacity:0;transform:scale(1.9);}
+  }
+
+  /* hero load animation */
+  .reveal{opacity:0;transform:translateY(14px);}
+  .hero .reveal{animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards;}
+  .hero .reveal.d1{animation-delay:.05s;}
+  .hero .reveal.d2{animation-delay:.18s;}
+  .hero .reveal.d3{animation-delay:.30s;}
+  .hero .reveal.d4{animation-delay:.42s;}
+  .hero .reveal.d5{animation-delay:.20s;}
+  @keyframes rise{to{opacity:1;transform:translateY(0);}}
+
+  .chart-path{
+    stroke-dasharray:900;
+    stroke-dashoffset:900;
+    animation:draw 2.2s ease forwards .3s;
+  }
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  .candle{opacity:0;animation:candlein .5s ease forwards;}
+  @keyframes candlein{to{opacity:1;}}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;animation:none;}
+    .chart-path{animation:none;stroke-dashoffset:0;}
+    .candle{animation:none;opacity:1;}
+    .whatsapp-float::before{animation:none;display:none;}
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .about-grid{grid-template-columns:1fr;}
+    .about-col + .about-col{border-left:0;border-top:1px solid var(--line-light);}
+    .trading-layout{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .ledger-row{grid-template-columns:60px 1fr;}
+    .ledger-row .desc{grid-column:1/-1;}
+  }
+  @media (max-width:760px){
+    .nav-links{
+      position:fixed;top:0;right:0;height:100vh;width:min(78vw,320px);
+      background:var(--ink);
+      flex-direction:column;
+      padding:100px 32px;
+      gap:26px;
+      transform:translateX(100%);
+      transition:transform .35s ease;
+      border-left:1px solid var(--line-dark);
+      z-index:200;
+    }
+    .nav-links.open{transform:translateX(0);}
+    .menu-btn{display:flex;}
+    .hero .wrap{grid-template-columns:1fr;}
+    .photo-frame{margin:0 auto;order:-1;}
+    .hero{padding-top:140px;}
+    .stat-row{grid-template-columns:1fr 1fr;}
+    .stat-row .stat:last-child{grid-column:1/-1;}
+    .whatsapp-float{width:52px;height:52px;right:18px;bottom:18px;}
+    .whatsapp-float svg{width:26px;height:26px;}
+  }
+  @media (max-width:480px){
+    .wrap{padding:0 20px;}
+    .ledger-row{grid-template-columns:1fr;gap:8px;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <nav class="wrap">
+    <a href="#home" class="brand">Cornellius Musyoka <span>Cornellius FX</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Accounting</a></li>
+      <li><a href="#trading">Trading</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+<div class="nav-backdrop" id="navBackdrop"></div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <svg class="hero-chart" viewBox="0 0 600 300" fill="none" aria-hidden="true">
+    <path class="chart-path" d="M0 220 L60 200 L110 235 L160 150 L210 175 L260 110 L310 140 L360 70 L410 95 L460 40 L520 65 L600 15"
+      stroke="#D8AE5C" stroke-width="2"/>
+    <g stroke="#B8862E" stroke-width="1.5">
+      <line class="candle" style="animation-delay:.6s" x1="80" y1="190" x2="80" y2="230"/>
+      <rect class="candle" style="animation-delay:.6s" x="72" y="195" width="16" height="22" fill="#2F6E4E" stroke="none"/>
+      <line class="candle" style="animation-delay:.75s" x1="180" y1="150" x2="180" y2="200"/>
+      <rect class="candle" style="animation-delay:.75s" x="172" y="160" width="16" height="26" fill="#A13D2B" stroke="none"/>
+      <line class="candle" style="animation-delay:.9s" x1="300" y1="110" x2="300" y2="160"/>
+      <rect class="candle" style="animation-delay:.9s" x="292" y="118" width="16" height="24" fill="#2F6E4E" stroke="none"/>
+      <line class="candle" style="animation-delay:1.05s" x1="420" y1="70" x2="420" y2="120"/>
+      <rect class="candle" style="animation-delay:1.05s" x="412" y="78" width="16" height="24" fill="#2F6E4E" stroke="none"/>
+    </g>
+  </svg>
+
+  <div class="wrap">
+    <div>
+      <p class="eyebrow reveal d1">Nairobi, Kenya</p>
+      <h1 class="hero-name reveal d2">Cornellius<br>Musyoka</h1>
+      <p class="hero-role reveal d3">Accounting student on industrial attachment. Independent forex trader, trading as Cornellius FX.</p>
+      <p class="hero-tagline reveal d4">I bring the same discipline to balance sheets and to price charts — measured, evidence-led, and unhurried in both, even while I'm still building both careers.</p>
+      <div class="cta-row reveal d4">
+        <a href="#services" class="btn btn-primary">See my skills</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="reveal d5">
+      <div class="photo-frame">
+        <div class="photo-inner">
+          <!-- Replace the src below with the path to your own photo -->
+          <img id="profilePhoto" src="musyoka.jpg" alt="Cornellius Musyoka"
+               onerror="this.style.display='none'; document.getElementById('photoFallback').style.display='flex';">
+          <div class="photo-fallback" id="photoFallback">CM</div>
+        </div>
+      </div>
+      <p class="photo-caption">Cornellius Musyoka</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section-pad" id="about">
+  <div class="wrap">
+    <h2>Two disciplines, one approach</h2>
+    <p class="lede">A short introduction to how I work, on either side of the desk.</p>
+
+    <div class="about-grid">
+      <div class="about-col accountant">
+        <span class="role-tag">Accounting</span>
+        <h3>The accountant, in training</h3>
+        <p>I'm an accounting student currently on industrial attachment, applying what I've learned in bookkeeping, reconciliations, and financial reporting in a real working environment. I'm not yet certified, but I bring genuine care and a growing, practical skill set to every task I'm given.</p>
+      </div>
+      <div class="about-col trader">
+        <span class="role-tag">Trading</span>
+        <h3>The trader</h3>
+        <p>Alongside my studies, I've spent the past year trading the forex markets independently under the name Cornellius FX. I favour patience and risk control over speed, reading price action the way I'd read a ledger — carefully, and without emotion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="section-pad" id="services" style="background:var(--paper);">
+  <div class="wrap">
+    <h2>Accounting skills</h2>
+    <p class="lede">What I'm building hands-on through my attachment, and can already help with.</p>
+
+    <div class="ledger">
+      <div class="ledger-row">
+        <span class="code">100</span>
+        <span class="title">Bookkeeping &amp; records</span>
+        <span class="desc">Recording transactions and keeping ledgers organised and up to date.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="code">200</span>
+        <span class="title">Reconciliations</span>
+        <span class="desc">Matching records against statements to catch errors early and keep accounts accurate.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="code">300</span>
+        <span class="title">Financial statements</span>
+        <span class="desc">Assisting with income statements, balance sheets, and cash flow reports.</span>
+      </div>
+      <div class="ledger-row">
+        <span class="code">400</span>
+        <span class="title">Basic tax support</span>
+        <span class="desc">Supporting return preparation and filing under supervision, with an eye for detail.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRADING ================= -->
+<section class="section-pad on-dark" id="trading">
+  <div class="wrap">
+    <div class="trading-layout">
+      <div>
+        <h2>Trading, as Cornellius FX</h2>
+        <p class="lede">I trade major and minor currency pairs using technical analysis and strict risk management. This is a personal discipline, not a signals service — I don't publish calls or promise returns.</p>
+
+        <div class="stat-row">
+          <div class="stat">
+            <span class="num">1 yr</span>
+            <span class="label">Trading experience</span>
+          </div>
+          <div class="stat">
+            <span class="num">Majors &amp; minors</span>
+            <span class="label">Pairs I follow</span>
+          </div>
+          <div class="stat">
+            <span class="num">1–2%</span>
+            <span class="label">Max risk per trade</span>
+          </div>
+        </div>
+
+        <p class="disclaimer">Trading involves substantial risk. Nothing here is financial advice or an invitation to trade — it's a record of how I approach the markets while I'm still early in this journey.</p>
+      </div>
+
+      <div class="candle-card">
+        <svg viewBox="0 0 400 220" width="100%" aria-hidden="true">
+          <g stroke="#3A4B60" stroke-width="1">
+            <line x1="0" y1="40" x2="400" y2="40"/>
+            <line x1="0" y1="90" x2="400" y2="90"/>
+            <line x1="0" y1="140" x2="400" y2="140"/>
+            <line x1="0" y1="190" x2="400" y2="190"/>
+          </g>
+          <g stroke-width="1.5">
+            <line x1="30" y1="60" x2="30" y2="120" stroke="#2F6E4E"/>
+            <rect x="20" y="70" width="20" height="35" fill="#2F6E4E"/>
+            <line x1="80" y1="90" x2="80" y2="160" stroke="#A13D2B"/>
+            <rect x="70" y="100" width="20" height="40" fill="#A13D2B"/>
+            <line x1="130" y1="50" x2="130" y2="110" stroke="#2F6E4E"/>
+            <rect x="120" y="58" width="20" height="30" fill="#2F6E4E"/>
+            <line x1="180" y1="70" x2="180" y2="150" stroke="#A13D2B"/>
+            <rect x="170" y="80" width="20" height="46" fill="#A13D2B"/>
+            <line x1="230" y1="30" x2="230" y2="95" stroke="#2F6E4E"/>
+            <rect x="220" y="38" width="20" height="32" fill="#2F6E4E"/>
+            <line x1="280" y1="60" x2="280" y2="130" stroke="#2F6E4E"/>
+            <rect x="270" y="68" width="20" height="38" fill="#2F6E4E"/>
+            <line x1="330" y1="40" x2="330" y2="100" stroke="#2F6E4E"/>
+            <rect x="320" y="46" width="20" height="30" fill="#2F6E4E"/>
+          </g>
+        </svg>
+        <p class="candle-note">EUR/USD — illustrative chart, not live market data.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section class="section-pad" id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <p class="lede">Still early days, but here's the path so far.</p>
+
+    <div class="timeline">
+      <div class="t-row">
+        <span class="t-year">2025</span>
+        <div class="t-body">
+          <h4>Started trading forex</h4>
+          <p>Began trading currency markets independently, developing the risk-first approach behind Cornellius FX.</p>
+        </div>
+      </div>
+      <div class="t-row">
+        <span class="t-year">2026</span>
+        <div class="t-body">
+          <h4>Industrial attachment</h4>
+          <p>Currently on attachment, applying accounting coursework in a real working environment — bookkeeping, reconciliations, and reporting.</p>
+        </div>
+      </div>
+      <div class="t-row">
+        <span class="t-year">Now</span>
+        <div class="t-body">
+          <h4>Building both, at once</h4>
+          <p>Finishing my studies while continuing to trade under Cornellius FX and take on practical accounting work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section-pad on-dark" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <h2>Let's talk</h2>
+        <p class="lede">For accounting work, reach out about your books, your reconciliations, or your next set of financial statements. For anything else, I'm happy to hear from you too.</p>
+
+        <ul class="contact-list">
+          <li><span>Email</span><a href="mailto:musyokacornellius6@gmail.com">musyokacornellius6@gmail.com</a></li>
+          <li><span>Phone</span><a href="tel:+254703125432">0703 125 432</a></li>
+          <li><span>Location</span><span>Nairobi, Kenya</span></li>
+          <li><span>Trading</span><span>Cornellius FX</span></li>
+        </ul>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <input type="text" id="cfName" placeholder="Your name" required>
+        <input type="email" id="cfEmail" placeholder="Your email" required>
+        <textarea id="cfMessage" placeholder="Tell me a little about what you need" required></textarea>
+        <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send message</button>
+        <p class="form-hint">This opens Gmail with your message ready to send to me.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Cornellius Musyoka — Accounting Student &amp; Forex Trader (Cornellius FX)</span>
+    <span>&copy; 2026</span>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp button — opens a chat with the number below -->
+<a class="whatsapp-float" href="https://wa.me/254703125432" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="#ffffff" aria-hidden="true">
+    <path d="M16.02 3C9.4 3 4 8.36 4 14.98c0 2.3.63 4.46 1.73 6.3L3 29l7.9-2.63a12.9 12.9 0 0 0 5.12 1.06h.01c6.62 0 12.02-5.36 12.02-11.98C28.05 8.87 22.65 3 16.02 3zm0 21.87h-.01a10.8 10.8 0 0 1-5.5-1.5l-.4-.24-4.68 1.56 1.57-4.56-.26-.42a9.9 9.9 0 0 1-1.53-5.24C5.21 9.5 10.1 5 16.02 5c2.9 0 5.63 1.13 7.68 3.18a10.72 10.72 0 0 1 3.18 7.63c0 5.85-4.9 10.06-10.86 10.06zm5.94-7.54c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.51-.16-.73.16-.21.32-.84 1.05-1.03 1.26-.19.21-.38.24-.7.08-.32-.16-1.35-.5-2.57-1.6-.95-.85-1.6-1.9-1.78-2.22-.19-.32-.02-.5.14-.66.14-.14.32-.38.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.73-1.77-1-2.43-.26-.63-.53-.54-.73-.55h-.62c-.21 0-.56.08-.85.4-.29.32-1.12 1.1-1.12 2.67 0 1.57 1.15 3.09 1.31 3.3.16.21 2.26 3.46 5.48 4.85.77.33 1.36.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.29-.21-.61-.37z"/>
+  </svg>
+</a>
+
+<script>
+  // Header background on scroll
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile menu — open/close via button, backdrop, link click, or Escape.
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  const navBackdrop = document.getElementById('navBackdrop');
+
+  function openMenu(){
+    navLinks.classList.add('open');
+    navBackdrop.classList.add('open');
+    menuBtn.setAttribute('aria-expanded', 'true');
+  }
+  function closeMenu(){
+    navLinks.classList.remove('open');
+    navBackdrop.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }
+  function toggleMenu(){
+    const isOpen = navLinks.classList.contains('open');
+    isOpen ? closeMenu() : openMenu();
+  }
+
+  menuBtn.addEventListener('click', toggleMenu);
+  navBackdrop.addEventListener('click', closeMenu);
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // Contact form — builds a pre-filled Gmail compose link (addressed to
+  // Cornellius) and opens it in a new tab, so the visitor's message lands
+  // straight in Gmail ready to send. Falls back to a normal mailto link
+  // if the Gmail compose window is blocked.
+  const RECEIVER_EMAIL = 'musyokacornellius6@gmail.com';
+  const contactForm = document.getElementById('contactForm');
+
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('cfName').value.trim();
+    const senderEmail = document.getElementById('cfEmail').value.trim();
+    const message = document.getElementById('cfMessage').value.trim();
+
+    const subject = `Website enquiry from ${name}`;
+    const body = `Name: ${name}\nEmail: ${senderEmail}\n\n${message}`;
+
+    const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1'
+      + '&to=' + encodeURIComponent(RECEIVER_EMAIL)
+      + '&su=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+
+    const win = window.open(gmailUrl, '_blank');
+
+    // Popup blocked or unavailable — fall back to the visitor's default
+    // mail app via a mailto link instead of failing silently.
+    if (!win) {
+      window.location.href = 'mailto:' + RECEIVER_EMAIL
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+    }
+
+    contactForm.reset();
+  });
+</script>
+
+</body>
+</html>
